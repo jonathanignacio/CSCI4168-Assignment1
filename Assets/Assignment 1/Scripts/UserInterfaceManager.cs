@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserInterfaceManager : MonoBehaviour {
 
     public static UserInterfaceManager singleton;
 
+    public GameObject UserInterfaceCanvas; // A reference to the UI canvas
     public GameObject heathUI; // A reference to the section of the UI for health display
     public GameObject heartContainer; // An instance of a heart container within the health display
     public GameObject coinText; // A reference to the UI element where coin count is displayed
@@ -39,21 +41,32 @@ public class UserInterfaceManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        heartPrefabs = new List<GameObject> {
-            heartContainer
-        };
-   
-		for (int i = 1; i < heartCount; i ++) {
-            GameObject heart = Instantiate(heartContainer, heathUI.transform);
-            heart.transform.Translate(Vector3.right * i * 50);
-            heartPrefabs.Add(heart);
-        }
-	}
+        SceneManager.sceneLoaded += this.OnLoadCallback; // Add the callback to the list for when the scene changes
+        InitializeHearthContainers();
+    }
+
+    // Method to call when the scene loads
+    void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
+        InitializeHearthContainers();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    // Fill the list of heart containers with new prefab instances and then re-load the display
+    private void InitializeHearthContainers() {
+        heartPrefabs = new List<GameObject>(); // Reset the list
+
+        for (int i = 0; i < heartCount; i++) {
+            GameObject heart = Instantiate(heartContainer, heathUI.transform);
+            heart.transform.Translate(Vector3.right * i * 50);
+            heartPrefabs.Add(heart);
+        }
+
+        UpdateHealthDisplay(currentHealth); // Refresh the heart containers
+    }
 
     // Update the number of red hearts to display
     public void UpdateHealthDisplay(int updatedHealth) {

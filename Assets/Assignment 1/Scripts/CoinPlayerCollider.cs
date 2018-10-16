@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 
-
 public class CoinPlayerCollider : MonoBehaviour {
 
     public GameObject coinPickupEffect; // The particle effect for when a coin is picked up

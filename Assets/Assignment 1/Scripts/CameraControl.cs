@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl: MonoBehaviour {
 
-    public Transform target; // The transform that the camera will look at
+    public GameObject followingObject; // The GameObject that the camera will look at
     public float rotationSpeed = 1.0f; // The speed that the camera will rotate by
     public float distance = 3f; // How far the camera is from the target
     public float distanceMin = 1.5f; // The closest the camera can be scrolled in
@@ -14,12 +14,13 @@ public class CameraControl: MonoBehaviour {
     public float verticalAngleMin = 0f; // Minimum vertical rotation
     public float verticalAngleMax = 75f; // Maximum vertical rotation
 
-
+    private Transform target; // The transform of the target
     private float horizontalRotation = 180f;
     private float verticalRotation = 0f;
 
 	// Use this for initialization
 	void Start () {
+        target = followingObject.transform;
         horizontalRotation = target.eulerAngles.y; // Initialize mouseX as from the initial character horizontal rotation
 
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to the center of the screen

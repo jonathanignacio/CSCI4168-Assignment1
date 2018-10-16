@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef66567dcc094174bbd28ff805bf9f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPickupEffect: {fileID: 1753833154620152, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
+  coinPickupEffect: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
     type: 2}

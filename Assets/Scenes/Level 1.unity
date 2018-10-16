@@ -284,7 +284,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -477,7 +478,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -982,7 +984,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1038,7 +1041,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1089,7 +1093,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1204,7 +1209,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1467,7 +1473,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1524,11 +1531,6 @@ Prefab:
       propertyPath: m_Name
       value: FishCoin (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
-        type: 2}
-      propertyPath: coinPickupEffect
-      value: 
-      objectReference: {fileID: 1125428121}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1667,7 +1669,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1723,7 +1726,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -1780,11 +1784,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4059210281138552, guid: 1da1cd149d9f9124a9f46e9c388a6b17,
     type: 2}
   m_PrefabInternal: {fileID: 111093593}
---- !u!1 &1125428121 stripped
+--- !u!1 &1125428121
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1753833154620152, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
     type: 2}
   m_PrefabInternal: {fileID: 1750429703}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125428124}
+  - component: {fileID: 1125428125}
+  - component: {fileID: 1125428123}
+  - component: {fileID: 1125428122}
+  m_Layer: 0
+  m_Name: CoinPickupEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &1125428122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,200 +1815,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1
---- !u!4 &1125428124 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4109692656927818, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1750429703}
---- !u!4 &1145050423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 815540488}
---- !u!1001 &1152531646
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2138528207}
-    m_Modifications:
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 14.08157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 29.211544
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 20.207924
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1597506397593682, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_Name
-      value: FishCoin (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
-        type: 2}
-      propertyPath: coinPickupEffect
-      value: 
-      objectReference: {fileID: 1125428121}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1 &1160614630 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1222688397825348, guid: d070ca6547fe04842ae7a974047314f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1391653812}
---- !u!224 &1160614631 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224800436574132386, guid: d070ca6547fe04842ae7a974047314f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1391653812}
---- !u!1001 &1175660703
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2138528207}
-    m_Modifications:
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 15.098528
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 31.198692
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 14.962128
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1597506397593682, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-      propertyPath: m_Name
-      value: FishCoin (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
-        type: 2}
-      propertyPath: coinPickupEffect
-      value: 
-      objectReference: {fileID: 1125428121}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1230052191
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1544866952}
-    m_Modifications:
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 28.848
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 34.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -16.152
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
-  m_IsPrefabAsset: 0
---- !u!4 &1230052192 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1230052191}
---- !u!1 &1248277020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1248277023}
-  - component: {fileID: 1248277022}
-  - component: {fileID: 1248277024}
-  - component: {fileID: 1248277021}
-  m_Layer: 0
-  m_Name: CoinPickupEffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!199 &1248277021
+--- !u!199 &1125428123
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1248277020}
+  m_CorrespondingSourceObject: {fileID: 199673737234736298, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1750429703}
+  m_GameObject: {fileID: 1125428121}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -2041,12 +1873,27 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!198 &1248277022
+--- !u!4 &1125428124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4109692656927818, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1750429703}
+  m_GameObject: {fileID: 1125428121}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1055.3696, y: -52.195328, z: -597.00226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 856252215}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!198 &1125428125
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1248277020}
+  m_CorrespondingSourceObject: {fileID: 198289015290119682, guid: ca6977cd2e4bf75478ec2e8f2a8a415f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1750429703}
+  m_GameObject: {fileID: 1125428121}
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
@@ -2120,7 +1967,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2173,7 +2020,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7.5
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2226,8 +2073,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.8490566, g: 0.58525115, b: 0, a: 1}
-      maxColor: {r: 1, g: 0.86753607, b: 0.5613208, a: 1}
+      minColor: {r: 1, g: 0.8991151, b: 0.5801887, a: 1}
+      maxColor: {r: 0.6037736, g: 0.43961397, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -2289,7 +2136,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2695,7 +2542,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -2924,7 +2771,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 15
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -2998,8 +2845,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -2
-          outSlope: -2
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -4020,7 +3867,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4028,26 +3875,17 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: -2
-          outSlope: -2
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.48401687
-          value: -0.0020548701
-          inSlope: -1.0357904
-          outSlope: -1.0357904
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
           time: 1
-          value: -0.43243408
-          inSlope: 0
-          outSlope: 0
+          value: 0
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -6640,31 +6478,172 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!4 &1248277023
+--- !u!4 &1145050423 stripped
 Transform:
+  m_CorrespondingSourceObject: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 815540488}
+--- !u!1001 &1152531646
+Prefab:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1248277020}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 39.055, y: 1.03, z: 56.16677}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &1248277024
-MonoBehaviour:
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2138528207}
+    m_Modifications:
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.08157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 29.211544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 20.207924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597506397593682, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_Name
+      value: FishCoin (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
+        type: 2}
+      propertyPath: coinPickupEffect
+      value: 
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1160614630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1222688397825348, guid: d070ca6547fe04842ae7a974047314f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391653812}
+--- !u!224 &1160614631 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224800436574132386, guid: d070ca6547fe04842ae7a974047314f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1391653812}
+--- !u!1001 &1175660703
+Prefab:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1248277020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0873fd4f2b8844ab61cd0e21ba551f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2138528207}
+    m_Modifications:
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 15.098528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 31.198692
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.962128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943601365414202, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597506397593682, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+      propertyPath: m_Name
+      value: FishCoin (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
+        type: 2}
+      propertyPath: coinPickupEffect
+      value: 
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1230052191
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1544866952}
+    m_Modifications:
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 28.848
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 34.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -16.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5320ed0664bd27f489fa5235e270b5f8, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1230052192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4516059519402728, guid: 5320ed0664bd27f489fa5235e270b5f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1230052191}
 --- !u!1001 &1262532012
 Prefab:
   m_ObjectHideFlags: 0
@@ -6783,7 +6762,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -6902,7 +6882,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -7022,7 +7003,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -7407,11 +7389,6 @@ Prefab:
       propertyPath: m_Name
       value: FishCoin (11)
       objectReference: {fileID: 0}
-    - target: {fileID: 114334027703642774, guid: 6306ddd9b8013a243a2f68d244d4b4eb,
-        type: 2}
-      propertyPath: coinPickupEffect
-      value: 
-      objectReference: {fileID: 1125428121}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -7740,7 +7717,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -7791,7 +7769,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -8078,7 +8057,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -8170,7 +8150,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -8283,7 +8264,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0
@@ -8384,7 +8366,8 @@ Prefab:
         type: 2}
       propertyPath: coinPickupEffect
       value: 
-      objectReference: {fileID: 1125428121}
+      objectReference: {fileID: 1113497249863410, guid: a5cd7795ced53b649ba928b323940ca6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6306ddd9b8013a243a2f68d244d4b4eb, type: 2}
   m_IsPrefabAsset: 0

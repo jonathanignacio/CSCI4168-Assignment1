@@ -20,9 +20,6 @@ public class PlatformControl : MonoBehaviour {
     private bool paused = false;
 
     private Rigidbody platformRigidBody; // A reference to the kinematic Rigidbody of the platform
-    private Vector3 playerOffset; // The amount to move the player by to catch it up to the platform
-    private bool playerMoved = false; // Signal if the player has already been moved by the script to allow independent player movement
-
     private bool returning = false;
     
 
@@ -38,16 +35,13 @@ public class PlatformControl : MonoBehaviour {
 	void FixedUpdate () {
         if (!paused) {
             UpdatePlatformPosition();
+        } else {
+            UpdateTimer();
+
         }
     }
 
-    private void Update() {
-        UpdateTimer(); // Update the timer here
-    }
-    private void LateUpdate() {
-        playerMoved = false; // After other updates, let the player be moved by the platform again
-    }
-
+    // Called in FixedUpdate
     void UpdatePlatformPosition() {
         Vector3 to;
 
@@ -59,14 +53,13 @@ public class PlatformControl : MonoBehaviour {
 
         float step = speed * Time.fixedDeltaTime; // Move according to the amount of time passed
 
-        Vector3 oldPos = platformRigidBody.position;
-        platformRigidBody.MovePosition(Vector3.MoveTowards(platformRigidBody.position, to, step));
+        Vector3 oldPos = platformRigidBody.position; // Save the previous position
+        Vector3 newPos = Vector3.MoveTowards(platformRigidBody.position, to, step); // Calculate the new position
+        platformRigidBody.MovePosition(newPos); // Updates position at the end of the physics step
 
 
-        if (player && !playerMoved) {
-            player.Move(platformRigidBody.position - oldPos - playerOffset); // Move the player to the center of the platform
-            playerMoved = true;
-            // TODO make the player move relative to the platform (without parenting)
+        if (player != null) {
+            player.Move(newPos - oldPos); // Move the player the same amount that the platform did
         }
 
         if (Vector3.Distance(transform.position, to) <= 0) {
@@ -75,8 +68,9 @@ public class PlatformControl : MonoBehaviour {
         }
     }
 
+    // Called in FixedUpdate
     void UpdateTimer() {
-        pauseTimer -= Time.deltaTime;
+        pauseTimer -= Time.fixedDeltaTime;
         if (pauseTimer <= 0) {
             ResetTimer();
         }
@@ -96,12 +90,6 @@ public class PlatformControl : MonoBehaviour {
         if (collider.gameObject.tag == "Player") {
             if (player == null) {
                 player = collider.gameObject.GetComponent<CharacterController>(); // Get the CharacterController for moving with the platform
-            }
-
-            // Check again after first null check to allow player offset updating on the first trigger
-            if (!playerMoved && player != null) { // Reference to player must be defined
-                playerOffset = platformRigidBody.position - player.transform.position; // Update the player offset from the center of the platform
-                playerOffset.y = 0; // Do not control vertical motion
             }
         }
     }

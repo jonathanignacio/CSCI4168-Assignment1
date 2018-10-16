@@ -51,7 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3721a41f285fcf4380cc1a687e93a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heathUI: {fileID: 1333603026862712, guid: 8f114be583e230c41b01cd94ae0a5f78, type: 2}
-  heartContainer: {fileID: 1222688397825348, guid: d070ca6547fe04842ae7a974047314f5,
+  UICanvasPrefab: {fileID: 1224935683596316, guid: eb6bbf62cbdd9834a9940514d5b7a9ef,
     type: 2}
-  coinText: {fileID: 1874974514146858, guid: 27c431a94039dd3409ad48d065a4782c, type: 2}
+  healthUIPrefab: {fileID: 1202590623213056, guid: da72bc9150b6b7749a0883a4e9ee1ddb,
+    type: 2}
+  coinUIPrefab: {fileID: 1614984452889996, guid: 27c431a94039dd3409ad48d065a4782c,
+    type: 2}
+  heartContainerPrefab: {fileID: 1222688397825348, guid: d070ca6547fe04842ae7a974047314f5,
+    type: 2}

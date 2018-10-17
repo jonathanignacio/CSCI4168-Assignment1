@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class LevelWarpPlayerCollider : MonoBehaviour {
 
-    public string levelName; // The name of the scene to load
+    [Tooltip("The name of the scene to load")]
+    public string levelName; // NICETOHAVE: make this a property drawer of only scenes that are included in the builder to avoid potential reference errors
 
 	// Use this for initialization
 	void Start () {

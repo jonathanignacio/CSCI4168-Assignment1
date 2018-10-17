@@ -7,14 +7,22 @@ public class UserInterfaceManager : MonoBehaviour {
 
     public static UserInterfaceManager singleton;
 
-    public GameObject UICanvasPrefab; // A reference to the UI canvas prefab
-    public GameObject healthUIPrefab; // A reference to the section of the UI for health display
-    public GameObject coinUIPrefab; // A reference to the coin display
-    public GameObject heartContainerPrefab; // A reference to the heart container prefab 
+    [Header("Required Prefab References")]
+    [Tooltip("A reference to the UI canvas prefab")]
+    public GameObject UICanvasPrefab;
 
-    private GameObject abstractInstance; // A reference to the Abstract game object for organizing non-worldspace entities
+    [Tooltip("A reference to the section of the UI for health display")]
+    public GameObject healthUIPrefab;
+
+    [Tooltip("A reference to the coin display prefab")]
+    public GameObject coinUIPrefab;
+
+    [Tooltip("A reference to the heart container prefab")]
+    public GameObject heartContainerPrefab;
+
 
     // GameObject instances
+    private GameObject abstractInstance; // A reference to the Abstract game object for organizing non-worldspace entities
     private GameObject canvas; // the current instance of the canvas
     private GameObject healthUIInstance; // Current instance of the health UI
     private GameObject coinUIInstance; // Current instance of the coin UI

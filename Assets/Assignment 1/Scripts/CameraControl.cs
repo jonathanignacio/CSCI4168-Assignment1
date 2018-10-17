@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class CameraControl: MonoBehaviour {
 
-    public GameObject followingObject; // The GameObject that the camera will look at
-    public float rotationSpeed = 1.0f; // The speed that the camera will rotate by
-    public float distance = 3f; // How far the camera is from the target
-    public float distanceMin = 1.5f; // The closest the camera can be scrolled in
-    public float distanceMax = 6f; // The farthest the camera can be scrolled out
+    [Tooltip("The GameObject that the camera will look at")]
+    public GameObject followingObject;
 
-    // Rotation limits
-    public float verticalAngleMin = 0f; // Minimum vertical rotation
-    public float verticalAngleMax = 75f; // Maximum vertical rotation
+    [Header("Zoom Settings")]
+    [Tooltip("How far the camera is from the target")]
+    public float distance = 3f;
 
+    [Tooltip("The closest the camera can be scrolled in")]
+    public float distanceMin = 1.5f;
+
+    [Tooltip("The farthest the camera can be scrolled out")]
+    public float distanceMax = 6f;
+
+    [Header("Rotation Settings")]
+    [Tooltip("The speed that the camera will rotate by")]
+    public float rotationSpeed = 1.0f;
+
+    [Tooltip("Minimum vertical rotation")]
+    public float verticalAngleMin = 0f;
+
+    [Tooltip("Maximum vertical rotation")]
+    public float verticalAngleMax = 75f;
+
+    // Private attributes
     private Transform target; // The transform of the target
     private float horizontalRotation = 180f;
     private float verticalRotation = 0f;

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Collider))]
 
-public class DamagePlayerCollider : MonoBehaviour {
+public class RespawnPlayerCollider : MonoBehaviour {
 
-    [Tooltip("The amount of damage to deal to the player on contact")]
-    public int damageAmount = 1;
+    [Tooltip("The priority of this spawner. A higher number means higher priority. Maximum priority should be the number of spawn points for a scene")]
+    public int spawnerNumber; 
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class DamagePlayerCollider : MonoBehaviour {
 	}
 
     private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player") {
             PlayerManager.singleton.DamagePlayer(1); // Deal one damage to the player on contact
         }
     }

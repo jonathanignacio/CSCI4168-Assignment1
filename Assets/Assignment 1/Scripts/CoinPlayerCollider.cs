@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CoinPlayerCollider : MonoBehaviour {
 
+    [Header("Required Prefab References")]
+    [Tooltip("A reference to the CoinPickupEffect prefab")]
     public GameObject coinPickupEffect; // The particle effect for when a coin is picked up
 
 	// Use this for initialization

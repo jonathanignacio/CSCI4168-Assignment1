@@ -7,18 +7,32 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager singleton;
 
-    public int playerMaxHealth = 3;
-    public int playerHealth = 3; // Player hitpoints
-    public float invincibilityDelay = 1.5f; // How long the player is invincible for before they can take more damage
-
-    public int playerCoins = 0; // The number of coins the player has collected
-
+    [Header("Required Prefab References")]
+    [Tooltip("A reference to the PlayerCharacter prefab")]
     public GameObject playerPrefab; // Should be assigned the player prefab
 
-    // Audio Clips
-    public AudioClip playerHurtSound; // Sound effect for player damage
-    public AudioClip playerGetCoinSound; // Sound effect for player collecting coins
-    public AudioClip playerSpendCoinSound; // Sound effect for player spending coins
+    [Header("Player Gameplay Settings")]
+    [Tooltip("The maximum (and starting) amount of health a player can have")]
+    public int playerMaxHealth = 3;
+
+    [Tooltip("The amount of time the player is invcible after taking damage")]
+    public float invincibilityDelay = 1.5f; // How long the player is invincible for before they can take more damage
+
+    [Header("Audio Clips")]
+    [Tooltip("Sound effect for player damage")]
+    public AudioClip playerHurtSound;
+
+    [Tooltip("Sound effect for player collecting coins")]
+    public AudioClip playerGetCoinSound;
+
+    [Tooltip("Sound effect for player spending coins")]
+    public AudioClip playerSpendCoinSound;
+
+    [HideInInspector]
+    public int playerHealth; // The current amount of health the player has
+
+    [HideInInspector]
+    public int playerCoins; // The current amount of coins the player 
 
     // Spawn Point Management
     private List<Transform> spawnPoints; // A list of all spawns in the scene

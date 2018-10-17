@@ -11,8 +11,15 @@ public class PlayerControl : MonoBehaviour {
     private CharacterController characterController;
     private Animator animator;
 
-    public float moveSpeed = 7.0f; // Units per second
+    //NICETOHAVE: get and modify these values from the player manager
+
+    [Tooltip("How fast the player will move in units per second")]
+    public float moveSpeed = 7.0f;
+
+    [Tooltip("The expected height that a player will climb to, dependent on gravityScale")]
     public float jumpForce = 21f; // The height that a player should climb to
+
+    [Tooltip("The proportion that gravity will affect the player. Best results are a number between 0.1 and 1")]
     public float gravityScale = 0.2f; // Floatier character
 
     // Movement fields

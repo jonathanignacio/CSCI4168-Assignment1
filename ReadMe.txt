@@ -10,6 +10,10 @@ Respawn player with 'X' (Essential to avoid starting all over!)
 Notes:
 PlayerManager.cs is in place of PlayerControl. (Differently named, but handles player health and inventory)
 
+Missing:
+Level 2 full implementation
+Complex enemy AI
+
 Some additional features not explicitly mentioned on the assignment description:
 - Animated custom player model
 - Static damaging obstacles (spikes)

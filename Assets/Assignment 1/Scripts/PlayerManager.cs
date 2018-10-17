@@ -94,7 +94,10 @@ public class PlayerManager : MonoBehaviour {
         GameObject sceneSpawnListObject = GameObject.FindGameObjectWithTag("SpawnPoint"); // The scene's GameObject tagged 'SpawnPoint' which should have all spawn points as children
         int spawnCount = sceneSpawnListObject.transform.childCount; // Get total number of spawn points
         for (int i = 0; i < spawnCount; i++) {
-            spawnPoints.Add(sceneSpawnListObject.transform.GetChild(i)); // Get child at the current index and add it to the list
+            Transform spawnPointTransform = sceneSpawnListObject.transform.GetChild(i); // Get the spawnpoint child at index i
+
+            spawnPointTransform.gameObject.GetComponent<SpawnPoint>().SetSpawnerNumber(i); // Set the number for the spawnpoint 
+            spawnPoints.Add(spawnPointTransform); // Add it to the list
         }
 
         currentSpawnPoint = spawnPoints[0]; // Use the first spawn point
@@ -140,6 +143,13 @@ public class PlayerManager : MonoBehaviour {
 
             SetPlayerHealth(playerHealth - damage);
             SetPlayerInvincible(true); // The player got hit, so temporarily protect from more damage
+        }
+    }
+
+    // Set the player spawn point to a different one only if it is a higher priority than the current
+    public void HandlePlayerSpawnPointUpdate(int spawnerNumber) {
+        if (spawnerNumber >= currentSpawnPoint.gameObject.GetComponent<SpawnPoint>().spawnerNumber) {
+            currentSpawnPoint = spawnPoints[spawnerNumber]; // If the triggered spawner is higher priority, set that as the current spawnpoint
         }
     }
 

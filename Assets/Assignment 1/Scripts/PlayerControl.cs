@@ -11,8 +11,15 @@ public class PlayerControl : MonoBehaviour {
     private CharacterController characterController;
     private Animator animator;
 
-    public float moveSpeed = 7.0f; // Units per second
+    //NICETOHAVE: get and modify these values from the player manager
+
+    [Tooltip("How fast the player will move in units per second")]
+    public float moveSpeed = 7.0f;
+
+    [Tooltip("The expected height that a player will climb to, dependent on gravityScale")]
     public float jumpForce = 21f; // The height that a player should climb to
+
+    [Tooltip("The proportion that gravity will affect the player. Best results are a number between 0.1 and 1")]
     public float gravityScale = 0.2f; // Floatier character
 
     // Movement fields
@@ -28,7 +35,16 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       Vector3 directionalMovement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); // Get a user input vector
+        MovementUpdate();
+        PlayerKillCheck();
+    }
+
+    private void FixedUpdate() {
+        verticalVelocity += Physics.gravity * gravityScale;
+    }
+
+    private void MovementUpdate() {
+        Vector3 directionalMovement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); // Get a user input vector
         directionalMovement = Vector3.ClampMagnitude(directionalMovement, 1.0f); // Do not allow directional vector to exceed a magnitude of 1
         directionalMovement = transform.rotation * directionalMovement * moveSpeed; // Rotate the vector by the direction that the player faces and the magnitude (speed)
 
@@ -58,7 +74,10 @@ public class PlayerControl : MonoBehaviour {
         characterController.Move(currentMovement * Time.deltaTime); // Scale the movement update by the deltaTime since last update
     }
 
-    private void FixedUpdate() {
-        verticalVelocity += Physics.gravity * gravityScale;
+    // Kill the player to reset at spawn
+    private void PlayerKillCheck() {
+        if (Input.GetKeyDown("x")) {
+            PlayerManager.singleton.DamagePlayer(PlayerManager.singleton.playerMaxHealth);
+        }
     }
 }

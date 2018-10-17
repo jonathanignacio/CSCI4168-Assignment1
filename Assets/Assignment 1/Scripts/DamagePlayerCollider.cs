@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class DamagePlayerCollider : MonoBehaviour {
 
-    public int damageAmount = 1; // The amount of damage to deal to the play on contact
+    [Tooltip("The amount of damage to deal to the player on contact")]
+    public int damageAmount = 1;
 
 	// Use this for initialization
 	void Start () {

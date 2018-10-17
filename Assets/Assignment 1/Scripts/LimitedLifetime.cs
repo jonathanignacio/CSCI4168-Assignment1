@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LimitedLifetime : MonoBehaviour {
 
-    public float lifetime; // The amount of seconds that the object should exist before destroying itself
+    [Tooltip("The amount of seconds that the object should exist before destroying itself")]
+    public float lifetime;
 
     private float timer = 0; // The remaining lifetime
 

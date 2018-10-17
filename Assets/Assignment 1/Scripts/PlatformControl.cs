@@ -7,12 +7,19 @@ using UnityEngine;
 
 public class PlatformControl : MonoBehaviour {
 
-    public float travelTime = 2f; // Platform will reach destination after this many seconds
-    public float pauseTime = 3f; // Number of seconds for the platform to wait at the end of the movement
+    [Header("Required Transform References")]
+    [Tooltip("The trasnform marking the initial position of the platform")]
+    public Transform origin;
 
+    [Tooltip("The trasnform marking the destination of the platform")]
+    public Transform destination;
 
-    public Transform origin; // Where the platform starts
-    public Transform destination; // Where the platform ends
+    [Header("Platform Speed Settings")]
+    [Tooltip("How many second it takes for the platform to move from the origin to the desintation (and vice-versa)")]
+    public float travelTime = 2f;
+
+    [Tooltip("How many seconds the platform will wait at either end of its path")]
+    public float pauseTime = 3f;
 
     private CharacterController player; // The transform of the player
     private float pauseTimer; // The timer to reduce while the platform is waiting

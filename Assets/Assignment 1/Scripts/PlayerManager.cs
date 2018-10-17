@@ -1,29 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager singleton;
 
+    [Header("Required Prefab References")]
+    [Tooltip("A reference to the PlayerCharacter prefab")]
+    public GameObject playerPrefab; // Should be assigned the player prefab
+
+    [Header("Player Gameplay Settings")]
+    [Tooltip("The maximum (and starting) amount of health a player can have")]
     public int playerMaxHealth = 3;
-    public int playerHealth = 3; // Player hitpoints
+
+    [Tooltip("The amount of time the player is invcible after taking damage")]
     public float invincibilityDelay = 1.5f; // How long the player is invincible for before they can take more damage
 
-    public int playerCoins = 0; // The number of coins the player has collected
+    [Header("Audio Clips")]
+    [Tooltip("Sound effect for player damage")]
+    public AudioClip playerHurtSound;
 
-    public GameObject player; // Should be assigned the player prefab
-    public Transform spawnPoint; // Get spawnpoint GameObject
+    [Tooltip("Sound effect for player collecting coins")]
+    public AudioClip playerGetCoinSound;
 
-    // Audio Clips
-    public AudioClip playerHurtSound; // Sound effect for player damage
-    public AudioClip playerGetCoinSound; // Sound effect for player collecting coins
-    public AudioClip playerSpendCoinSound; // Sound effect for player spending coins
+    [Tooltip("Sound effect for player spending coins")]
+    public AudioClip playerSpendCoinSound;
 
-    // Private members
+    [HideInInspector]
+    public int playerHealth; // The current amount of health the player has
+
+    [HideInInspector]
+    public int playerCoins; // The current amount of coins the player 
+
+    // Spawn Point Management
+    private List<Transform> spawnPoints; // A list of all spawns in the scene
+    private Transform currentSpawnPoint; // The currently selected spawn point
+
+    // Player and Components
+    private GameObject playerInstance; // The current instance of the player
+    private AudioSource playerAudioSource; // The reference to the player's AudioSource component
+
+    // Invicibility variables
     private bool isInvincible = false; // Toggle whether player can take damage or not
     private float invicibilityTimer; // Amount of time to stay invicible for
-    private AudioSource playerAudioSource; // The reference to the player's AudioSource component
 
 	void Awake () {
         bool execute = SetSingleton();
@@ -46,26 +67,61 @@ public class PlayerManager : MonoBehaviour {
     }
 
     void Start() {
-        playerAudioSource = player.GetComponent<AudioSource>();
-        RespawnPlayer(); // Move the player to spawn
+        SceneManager.sceneLoaded += this.OnLoadCallback; // Add the callback to the list for when the scene changes
+        InitializeSpawnPoints();
+        InitializePlayer(); // Create the player instance
+    }
+
+    // Method to call when the scene loads
+    void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
+        InitializeSpawnPoints();
+        InitializePlayer(); // Create the player instance
     }
 
     void Update() {
-        if (Input.GetKeyDown("x")) { // Debugging to deal damage
-            DamagePlayer(1);
+    }
+
+    private void FixedUpdate() {
+        UpdateInvincibility(); // Update any invicibility timer
+    }
+
+    // Player instance assumed null here. Respawns the player and gets required components
+    void InitializeSpawnPoints() {
+        spawnPoints = new List<Transform>(); // Instantiate a new list of spawnpoints
+        GameObject sceneSpawnListObject = GameObject.FindGameObjectWithTag("SpawnPoint"); // The scene's GameObject tagged 'SpawnPoint' which should have all spawn points as children
+        int spawnCount = sceneSpawnListObject.transform.childCount; // Get total number of spawn points
+        for (int i = 0; i < spawnCount; i++) {
+            Transform spawnPointTransform = sceneSpawnListObject.transform.GetChild(i); // Get the spawnpoint child at index i
+
+            spawnPointTransform.gameObject.GetComponent<SpawnPoint>().SetSpawnerNumber(i); // Set the number for the spawnpoint 
+            spawnPoints.Add(spawnPointTransform); // Add it to the list
         }
 
-        UpdateInvincibility();
+        currentSpawnPoint = spawnPoints[0]; // Use the first spawn point
     }
 
+    // Player instance assumed null here. Respawns the player and gets required components
+    void InitializePlayer() {
+        RespawnPlayer();
+        playerAudioSource = playerInstance.GetComponent<AudioSource>();
+    }
+
+    // Creates a new player instance or simply moves the current one to spawn
     void RespawnPlayer() {
-        player.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation); // Respawn the player
+        if (playerInstance == null) {
+            playerInstance = Instantiate(playerPrefab, currentSpawnPoint.position, currentSpawnPoint.rotation);  
+        } else {
+            playerInstance.transform.SetPositionAndRotation(currentSpawnPoint.position, currentSpawnPoint.rotation); // Move player to the current spawn point
+        }
+
+        SetPlayerHealth(3); // Reset player health
     }
 
+    // Update the timer for invicibility (should be called in FixedUpdate
     void UpdateInvincibility () {
         if (isInvincible) {
-            invicibilityTimer -= Time.deltaTime; // Reduce the timer
-            if (invicibilityTimer <= 0) {
+            invicibilityTimer += Time.fixedDeltaTime; // Update the timer
+            if (invicibilityTimer >= invincibilityDelay) {
                 invicibilityTimer = 0; // Reset to 0
                 isInvincible = false; // Make player vulnerable again
             }
@@ -74,12 +130,7 @@ public class PlayerManager : MonoBehaviour {
 
     // Toggle if the player can take damage
     private void SetPlayerInvincible(bool invincible) {
-        if (invincible) {
-            isInvincible = invincible;
-            invicibilityTimer = invincibilityDelay; // Set a timer
-        } else {
-            isInvincible = invincible;
-        }
+        isInvincible = invincible;
     }
 
     // Damage the player, if they are not invicible
@@ -92,16 +143,25 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    // Set the player spawn point to a different one only if it is a higher priority than the current
+    public void HandlePlayerSpawnPointUpdate(int spawnerNumber) {
+        if (spawnerNumber >= currentSpawnPoint.gameObject.GetComponent<SpawnPoint>().spawnerNumber) {
+            currentSpawnPoint = spawnPoints[spawnerNumber]; // If the triggered spawner is higher priority, set that as the current spawnpoint
+        }
+    }
+
     // Manually set player health
     private void SetPlayerHealth(int health) {
         playerHealth = Mathf.Clamp(health, 0, playerMaxHealth);
+        CheckPlayerHealth();
+    }
 
+    // Checks player health and updates user interface
+    private void CheckPlayerHealth() {
         if (playerHealth <= 0) { // If player has no health left
-            playerHealth = 3;
             RespawnPlayer();
         }
-
-        UserInterfaceManager.singleton.UpdateHealthDisplay(playerHealth);
+        UserInterfaceManager.singleton.UpdateHealthDisplay(); // Signal to the UI manager that it should refresh health display
     }
 
     // Method to spend player coins. Specify price. If player can afford, deduct coins and return true
@@ -130,6 +190,6 @@ public class PlayerManager : MonoBehaviour {
         playerCoins = Mathf.Clamp(coins, 0, int.MaxValue); // Do not allow negative coins
 
         // Update number of coins displayed on 
-        UserInterfaceManager.singleton.UpdateCoinDisplay(playerCoins);
+        UserInterfaceManager.singleton.UpdateCoinDisplay(); // Signal to the UI manager that it should refresh coin display
     }
 }

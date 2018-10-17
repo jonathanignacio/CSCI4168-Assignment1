@@ -1,20 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserInterfaceManager : MonoBehaviour {
 
     public static UserInterfaceManager singleton;
 
-    public GameObject heathUI; // A reference to the section of the UI for health display
-    public GameObject heartContainer; // An instance of a heart container within the health display
-    public GameObject coinText; // A reference to the UI element where coin count is displayed
+    [Header("Required Prefab References")]
+    [Tooltip("A reference to the UI canvas prefab")]
+    public GameObject UICanvasPrefab;
 
-    private int currentCoins = 0; // Number of coins the player has
-    private readonly int heartCount = 3; // Number of heart containers
-    private int currentHealth; // Number of fully red hearts
+    [Tooltip("A reference to the section of the UI for health display")]
+    public GameObject healthUIPrefab;
 
-    private List<GameObject> heartPrefabs;
+    [Tooltip("A reference to the coin display prefab")]
+    public GameObject coinUIPrefab;
+
+    [Tooltip("A reference to the heart container prefab")]
+    public GameObject heartContainerPrefab;
+
+
+    // GameObject instances
+    private GameObject abstractInstance; // A reference to the Abstract game object for organizing non-worldspace entities
+    private GameObject canvas; // the current instance of the canvas
+    private GameObject healthUIInstance; // Current instance of the health UI
+    private GameObject coinUIInstance; // Current instance of the coin UI
+
+    private List<GameObject> heartInstances;
 
     void Awake() {
         bool execute = SetSingleton();
@@ -39,41 +52,72 @@ public class UserInterfaceManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        heartPrefabs = new List<GameObject> {
-            heartContainer
-        };
-   
-		for (int i = 1; i < heartCount; i ++) {
-            GameObject heart = Instantiate(heartContainer, heathUI.transform);
-            heart.transform.Translate(Vector3.right * i * 50);
-            heartPrefabs.Add(heart);
-        }
-	}
+        SceneManager.sceneLoaded += this.OnLoadCallback; // Add the callback to the list for when the scene changes
+        InitializeCanvas();
+        InitializeHearthContainers();
+    }
+
+    // Method to call when the scene loads
+    void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
+        InitializeCanvas(); // Build all prefab instances for the UI
+        InitializeHearthContainers(); // Create insatnces of heart prefabs for player max health
+
+        // Make sure to reflect the values in PlayerManager after building the elements
+        UpdateHealthDisplay();
+        UpdateCoinDisplay();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    private void InitializeCanvas() {
+        abstractInstance = GameObject.FindGameObjectWithTag("Abstract"); // Get the Abstract game object for this scene
+        canvas = Instantiate(UICanvasPrefab, abstractInstance.transform); // Create a canvas and set its parent to the Abstract object
+        healthUIInstance = Instantiate(healthUIPrefab, canvas.transform); // Create a health UI instance and set its parent to the canvas
+        coinUIInstance = Instantiate(coinUIPrefab, canvas.transform); // Createa a coin UI instance and set its parent to the canvas
+    }
+
+    // Fill the list of heart containers with new prefab instances and then re-load the display
+    private void InitializeHearthContainers() {
+        heartInstances = new List<GameObject>(); // Reset the list
+        int heartCount = PlayerManager.singleton.playerMaxHealth; // Max health is how many hearts to show
+
+        for (int i = 0; i < heartCount; i++) {
+            GameObject heart = Instantiate(heartContainerPrefab, healthUIInstance.transform);
+            heart.transform.Translate(Vector3.right * i * 50);
+            heartInstances.Add(heart);
+        }
+
+        UpdateHealthDisplay(); // Refresh the heart containers
+    }
+
+    private void InitializeCoinText() {
+
+    }
+
     // Update the number of red hearts to display
-    public void UpdateHealthDisplay(int updatedHealth) {
-        currentHealth = updatedHealth; // Update the number of full hearts
-        int i = 0;
-        foreach(GameObject heart in heartPrefabs) {
-            if (this.currentHealth > i) { // If this heart is healthy
-                heart.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = true; // Show the full heart image (first child)
-                heart.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false; // Hide the empty heart image (second child)
+    public void UpdateHealthDisplay() {
+        if (heartInstances != null) { // Can only update hearts if they exist in the list
+            int i = 0;
+            foreach (GameObject heart in heartInstances) {
+                int currentHealth = PlayerManager.singleton.playerHealth; // Get the current player health from the manager
+                if (currentHealth > i) { // If this heart is healthy
+                    heart.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = true; // Show the full heart image (first child)
+                    heart.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false; // Hide the empty heart image (second child)
+                }
+                else { // Otherwise, show empty container
+                    heart.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = false; // Hide the full heart image (first child)
+                    heart.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = true; // show the empty heart image (second child)
+                }
+                i++;
             }
-            else { // Otherwise, show empty container
-                heart.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = false; // Hide the full heart image (first child)
-                heart.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = true; // show the empty heart image (second child)
-            }
-            i++;
         }
     }
 
-    public void UpdateCoinDisplay(int updatedCoins) {
-        currentCoins = updatedCoins;
-        coinText.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + currentCoins;
+    // Get the coin text from the prefab instance and update the value
+    public void UpdateCoinDisplay() {
+        coinUIInstance.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + PlayerManager.singleton.playerCoins;
     }
 }

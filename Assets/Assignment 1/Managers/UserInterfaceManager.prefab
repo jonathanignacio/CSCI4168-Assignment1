@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1122348412429414}
+  m_IsPrefabAsset: 1
+--- !u!1 &1122348412429414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4225807593862072}
+  - component: {fileID: 114432633308532630}
+  m_Layer: 0
+  m_Name: UserInterfaceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4225807593862072
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122348412429414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.232449, y: 1.786799, z: 80.69847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114432633308532630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122348412429414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3721a41f285fcf4380cc1a687e93a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UICanvasPrefab: {fileID: 1224935683596316, guid: eb6bbf62cbdd9834a9940514d5b7a9ef,
+    type: 2}
+  healthUIPrefab: {fileID: 1202590623213056, guid: da72bc9150b6b7749a0883a4e9ee1ddb,
+    type: 2}
+  coinUIPrefab: {fileID: 1614984452889996, guid: 27c431a94039dd3409ad48d065a4782c,
+    type: 2}
+  heartContainerPrefab: {fileID: 1222688397825348, guid: d070ca6547fe04842ae7a974047314f5,
+    type: 2}

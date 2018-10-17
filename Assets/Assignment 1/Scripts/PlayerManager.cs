@@ -79,9 +79,6 @@ public class PlayerManager : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown("x")) { // Debugging to deal damage
-            DamagePlayer(1);
-        } // TODO: remove this
     }
 
     private void FixedUpdate() {

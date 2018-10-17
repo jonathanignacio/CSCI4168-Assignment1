@@ -1,3 +1,12 @@
+Instructions:
+At the top of the old tower is a mysterious portal to untold riches!
+Guide the penguin to the treasure in the sky!
+
+Move with WASD
+Jump with Space
+Respawn player with 'X' (Essential to avoid starting all over!)
+
+
 Notes:
 PlayerManager.cs is in place of PlayerControl. (Differently named, but handles player health and inventory)
 

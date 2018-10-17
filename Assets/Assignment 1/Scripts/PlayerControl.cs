@@ -35,7 +35,16 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       Vector3 directionalMovement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); // Get a user input vector
+        MovementUpdate();
+        PlayerKillCheck();
+    }
+
+    private void FixedUpdate() {
+        verticalVelocity += Physics.gravity * gravityScale;
+    }
+
+    private void MovementUpdate() {
+        Vector3 directionalMovement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); // Get a user input vector
         directionalMovement = Vector3.ClampMagnitude(directionalMovement, 1.0f); // Do not allow directional vector to exceed a magnitude of 1
         directionalMovement = transform.rotation * directionalMovement * moveSpeed; // Rotate the vector by the direction that the player faces and the magnitude (speed)
 
@@ -65,7 +74,10 @@ public class PlayerControl : MonoBehaviour {
         characterController.Move(currentMovement * Time.deltaTime); // Scale the movement update by the deltaTime since last update
     }
 
-    private void FixedUpdate() {
-        verticalVelocity += Physics.gravity * gravityScale;
+    // Kill the player to reset at spawn
+    private void PlayerKillCheck() {
+        if (Input.GetKeyDown("x")) {
+            PlayerManager.singleton.DamagePlayer(PlayerManager.singleton.playerMaxHealth);
+        }
     }
 }

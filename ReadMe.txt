@@ -17,7 +17,7 @@ Complex enemy AI
 Some additional features not explicitly mentioned on the assignment description:
 - Animated custom player model
 - Static damaging obstacles (spikes)
-- Spawn points
+- Smart Spawn points
 - Coin collectables
 - Sound effects
 - Dynamic UI rendering and player spawning for cleaner level transitions

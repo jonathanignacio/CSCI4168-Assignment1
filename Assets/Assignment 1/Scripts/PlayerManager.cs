@@ -60,8 +60,8 @@ public class PlayerManager : MonoBehaviour {
 
     // Method to call when the scene loads
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
+        InitializeSpawnPoints();
         InitializePlayer(); // Create the player instance
-
     }
 
     void Update() {
@@ -140,7 +140,7 @@ public class PlayerManager : MonoBehaviour {
         if (playerHealth <= 0) { // If player has no health left
             RespawnPlayer();
         }
-        UserInterfaceManager.singleton.UpdateHealthDisplay(playerHealth);
+        UserInterfaceManager.singleton.UpdateHealthDisplay(); // Signal to the UI manager that it should refresh health display
     }
 
     // Method to spend player coins. Specify price. If player can afford, deduct coins and return true
@@ -169,6 +169,6 @@ public class PlayerManager : MonoBehaviour {
         playerCoins = Mathf.Clamp(coins, 0, int.MaxValue); // Do not allow negative coins
 
         // Update number of coins displayed on 
-        UserInterfaceManager.singleton.UpdateCoinDisplay(playerCoins);
+        UserInterfaceManager.singleton.UpdateCoinDisplay(); // Signal to the UI manager that it should refresh coin display
     }
 }

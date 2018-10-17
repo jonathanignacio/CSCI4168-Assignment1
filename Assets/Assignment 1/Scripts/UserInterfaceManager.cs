@@ -12,11 +12,6 @@ public class UserInterfaceManager : MonoBehaviour {
     public GameObject coinUIPrefab; // A reference to the coin display
     public GameObject heartContainerPrefab; // A reference to the heart container prefab 
 
-
-    private int currentCoins = 0; // Number of coins the player has
-    private readonly int heartCount = 3; // Number of heart containers
-    private int currentHealth; // Number of fully red hearts
-
     private GameObject abstractInstance; // A reference to the Abstract game object for organizing non-worldspace entities
 
     // GameObject instances
@@ -56,8 +51,12 @@ public class UserInterfaceManager : MonoBehaviour {
 
     // Method to call when the scene loads
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode) {
-        InitializeCanvas();
-        InitializeHearthContainers();
+        InitializeCanvas(); // Build all prefab instances for the UI
+        InitializeHearthContainers(); // Create insatnces of heart prefabs for player max health
+
+        // Make sure to reflect the values in PlayerManager after building the elements
+        UpdateHealthDisplay();
+        UpdateCoinDisplay();
     }
 	
 	// Update is called once per frame
@@ -75,6 +74,7 @@ public class UserInterfaceManager : MonoBehaviour {
     // Fill the list of heart containers with new prefab instances and then re-load the display
     private void InitializeHearthContainers() {
         heartInstances = new List<GameObject>(); // Reset the list
+        int heartCount = PlayerManager.singleton.playerMaxHealth; // Max health is how many hearts to show
 
         for (int i = 0; i < heartCount; i++) {
             GameObject heart = Instantiate(heartContainerPrefab, healthUIInstance.transform);
@@ -82,16 +82,20 @@ public class UserInterfaceManager : MonoBehaviour {
             heartInstances.Add(heart);
         }
 
-        UpdateHealthDisplay(currentHealth); // Refresh the heart containers
+        UpdateHealthDisplay(); // Refresh the heart containers
+    }
+
+    private void InitializeCoinText() {
+
     }
 
     // Update the number of red hearts to display
-    public void UpdateHealthDisplay(int updatedHealth) {
-        currentHealth = updatedHealth; // Update the number of full hearts
+    public void UpdateHealthDisplay() {
         if (heartInstances != null) { // Can only update hearts if they exist in the list
             int i = 0;
             foreach (GameObject heart in heartInstances) {
-                if (this.currentHealth > i) { // If this heart is healthy
+                int currentHealth = PlayerManager.singleton.playerHealth; // Get the current player health from the manager
+                if (currentHealth > i) { // If this heart is healthy
                     heart.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = true; // Show the full heart image (first child)
                     heart.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false; // Hide the empty heart image (second child)
                 }
@@ -105,8 +109,7 @@ public class UserInterfaceManager : MonoBehaviour {
     }
 
     // Get the coin text from the prefab instance and update the value
-    public void UpdateCoinDisplay(int updatedCoins) {
-        currentCoins = updatedCoins;
-        coinUIInstance.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + currentCoins;
+    public void UpdateCoinDisplay() {
+        coinUIInstance.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + PlayerManager.singleton.playerCoins;
     }
 }
